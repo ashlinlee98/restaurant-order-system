@@ -29,6 +29,8 @@ def place_order(menu):
 
     place_order = True
     # TODO: Create a continuous while loop so customers can order multiple items
+    menu_selection = 1
+
     while place_order:
         # Print the menu heading
         print_menu_heading()
@@ -58,7 +60,7 @@ def place_order(menu):
 
         # Ask the customer if they would like to order anything else
         # Let the customer know if they should type 'n' or 'N' to quit
-        keep_ordering = input("Would you like to keep ordering? (N) to quit: ")
+        keep_ordering = input("Would you like to keep ordering? (N)o to quit: ")
 
         # TODO: Write a conditional statement that checks if the customer types
         # 'n' or 'N'
@@ -108,13 +110,13 @@ def update_order(order, menu_selection, menu_items):
         # TODO: Convert the menu selection to an integer
         menu_selection = int(menu_selection)
     except ValueError:
-        print("Invalid input. Please enter a valid menu number.")
+        print(f"{menu_selection} was not a menu option.")
         return order
 
         # TODO: Write a conditional statement that checks if the customer's input is 
         # an item on the menu and prints an error message if it is not
     if menu_selection not in menu_items:
-        print("Invalid input. Please enter a valid menu number.")
+        print("Sorry, that number isn't an option.")
         return order
         
             # Store the item name as a variable
@@ -124,7 +126,7 @@ def update_order(order, menu_selection, menu_items):
             # TODO: A prompt (input) to the customer that prints the name of the 
             # menu item to the user and asks the quantity they would like to order.
             # Store the return in a quantity variable
-    quantity = input(f"How many {item_name} would you like to order? ")
+    quantity = input(f"What quantity of {item_name} would you like? \n(This will default to 1 if number is not entered) ")
 
             # TODO: Write a conditional statement that checks if the input quantity 
             # can be converted to an integer, then converts it to an integer. 
